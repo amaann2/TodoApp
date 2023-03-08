@@ -7,9 +7,9 @@ import { BiCheckboxChecked } from "react-icons/bi";
 import { BiCheckbox } from "react-icons/bi";
 
 const TodoListItem = ({ todo, removetodo, iscomplete }) => {
-  
 
-  return (
+
+  return (<>
     <div className="todo-item-container">
       {todo.isCompleted ? (
         <div className="todo-item">
@@ -18,6 +18,7 @@ const TodoListItem = ({ todo, removetodo, iscomplete }) => {
       ) : (
         <div className="todo-item">{todo.text}</div>
       )}
+
 
       <div className="bottons-container">
         <button className="completed-button" onClick={() => iscomplete(todo)}>
@@ -28,6 +29,7 @@ const TodoListItem = ({ todo, removetodo, iscomplete }) => {
         </button>
       </div>
     </div>
+  </>
   );
 };
 const mapDispatchToPops = (dispatch) => ({

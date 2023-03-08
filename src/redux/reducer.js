@@ -29,11 +29,16 @@ export const todoReducer = (state = INITIAL_STATE, action) => {
 
 const addItem = (todo, payload) => {
   const text = payload;
-  return [...todo, { id: v4(), text, isCompleted: false }];
+  return [
+    ...todo,
+    { id: v4(), text, isCompleted: false, createdAt: new Date() },
+  ];
 };
 const deleteItem = (todo, payload) => {
   return todo.filter((todo) => todo.id !== payload.id);
 };
 const isCompleted = (todo, payload) => {
-  return todo.id === payload.id ? { ...todo, isCompleted: !todo.isCompleted } : todo;
+  return todo.id === payload.id
+    ? { ...todo, isCompleted: !todo.isCompleted }
+    : todo;
 };
